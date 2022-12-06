@@ -1,5 +1,17 @@
 version: '3.9'
 services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=pass
+
   postgres:
     image: postgres:alpine
     ports:
@@ -9,4 +21,9 @@ services:
     environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=app
-      - POSTGRES_PASSWORD=9mREsvXDs9Gk89Ef
+      - POSTGRES_PASSWORD=pass
+
+  nodejs:
+    build: ./gate-simulator
+    ports:
+      - '9999:9999'
