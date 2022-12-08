@@ -44,9 +44,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    systemProperty 'selenide.headless', getProperty('selenide.headless')
-    systemProperty 'db.url', getProperty('db.url')
-    systemProperty 'db.user', getProperty('db.user', 'app')
-    systemProperty 'db.password', getProperty('db.password', 'pass')
-    systemProperty 'sut.url', getProperty('sut.url')
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'db.url', System.getProperty('db.url', 'jdbc:mysql://217.25.88.206/app')
+    //systemProperty 'db.url', System.getProperty('db.url', 'jdbc:postgresql://217.25.88.206/app')
+    systemProperty 'db.user', System.getProperty('db.user', 'app')
+    systemProperty 'db.password', System.getProperty('db.password', 'pass')
+    systemProperty 'sut.url', System.getProperty('sut.url', 'http://localhost:8080')
 }
