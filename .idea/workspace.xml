@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0c4449d-79f8-4018-b7c3-d611f92fc0ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreditPayTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/data/CardGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/CardGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/PaymentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PaymentPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/CardPayTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CardPayTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +42,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2IJi6ZBsnfC0xhQC6Z0zJcsStji" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
