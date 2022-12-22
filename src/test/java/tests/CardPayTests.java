@@ -1,19 +1,16 @@
-import com.codeborne.selenide.Condition;
+package tests;
+
 import com.codeborne.selenide.logevents.SelenideLogger;
+import data.CardGenerator;
 import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
 import org.junit.jupiter.api.*;
+import pages.MainPage;
+import pages.PaymentPage;
 
-import java.time.Duration;
+import static com.codeborne.selenide.Selenide.open;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-public class AuthTests {
+public class PaymentTests {
 
     @BeforeAll
     static void setUpAll() {
@@ -402,5 +399,4 @@ public class AuthTests {
         paymentPage.fillCard(CardGenerator.getCardCvv000());
         paymentPage.shouldImproperFormatNotification();
     }
-
 }
