@@ -10,14 +10,11 @@ import org.junit.jupiter.api.*;
 import pages.MainPage;
 import pages.PaymentPage;
 
-import java.sql.SQLException;
-
 import static com.codeborne.selenide.Selenide.open;
-import static data.SQL.getAmountPayment;
-import static data.SQL.getCardStatusForPayment;
+import static data.SQL.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CardPayTests {
+public class CreditPayTests {
 
     @BeforeAll
     static void setUpAll() {
@@ -39,33 +36,32 @@ public class CardPayTests {
 
     @SneakyThrows
     @Test
-    @DisplayName("Успешная оплата картой со статусом APPROVED")
+    @DisplayName("Успешная оплата кредитной картой со статусом APPROVED")
     void shouldSuccessPayIfApprovedCard() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getApprovedCard());
         paymentPage.shouldSuccessNotification();
-        assertEquals("APPROVED", getCardStatusForPayment());
-        assertEquals("45000", getAmountPayment());
+        assertEquals("APPROVED", getCardStatusForCreditRequest());
     }
 
     @Test
-    @DisplayName("Отказ банка в оплате картой со статусом DECLINED")
+    @DisplayName("Отказ банка в оплате кредитной картой со статусом DECLINED")
     void shouldFailurePayIfDeclinedCard() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getDeclinedCard());
         paymentPage.shouldFailureNotification();
-        assertEquals("DECLINED", getCardStatusForPayment());
+        assertEquals("DECLINED", getCardStatusForCreditRequest());
     }
 
     @Test
     @DisplayName("Отправка пустой формы")
     void shouldFailurePayIfEmptyAllFields() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getEmptyCardForm());
         paymentPage.shouldEmptyFieldNotification();
@@ -75,7 +71,7 @@ public class CardPayTests {
     @DisplayName("Пустое поле Номер карты")
     void shouldFailurePayIfEmptyCardNumber() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getEmptyCardNumber());
         paymentPage.shouldEmptyFieldNotification();
@@ -85,7 +81,7 @@ public class CardPayTests {
     @DisplayName("Пустое поле Месяц")
     void shouldFailurePayIfEmptyCardMonth() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getEmptyCardMonth());
         paymentPage.shouldEmptyFieldNotification();
@@ -95,7 +91,7 @@ public class CardPayTests {
     @DisplayName("Пустое поле Год")
     void shouldFailurePayIfEmptyCardYear() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getEmptyCardYear());
         paymentPage.shouldEmptyFieldNotification();
@@ -105,7 +101,7 @@ public class CardPayTests {
     @DisplayName("Пустое поле Владелец")
     void shouldFailurePayIfEmptyCardHolder() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getEmptyCardHolder());
         paymentPage.shouldEmptyFieldNotification();
@@ -115,7 +111,7 @@ public class CardPayTests {
     @DisplayName("Пустое поле CVV")
     void shouldFailurePayIfEmptyCardCVV() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getEmptyCardCVV());
         paymentPage.shouldEmptyFieldNotification();
@@ -125,7 +121,7 @@ public class CardPayTests {
     @DisplayName("В поле Номер карты 15 символов")
     void shouldFailurePayIfCardNumberLess16Sym() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberLess16Sym());
         paymentPage.shouldImproperFormatNotification();
@@ -135,7 +131,7 @@ public class CardPayTests {
     @DisplayName("В поле Номер карты 17 символов")
     void shouldFailurePayIfCardNumberOver16Sym() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberOver16Sym());
         paymentPage.shouldImproperFormatNotification();
@@ -145,7 +141,7 @@ public class CardPayTests {
     @DisplayName("Поле Номер карты заполнено буквами")
     void shouldFailurePayIfCardNumberLetters() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberLetters());
         paymentPage.shouldImproperFormatNotification();
@@ -155,7 +151,7 @@ public class CardPayTests {
     @DisplayName("Поле Номер карты заполнено спецсимволами")
     void shouldFailurePayIfCardNumberSymbols() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberSymbols());
         paymentPage.shouldImproperFormatNotification();
@@ -165,7 +161,7 @@ public class CardPayTests {
     @DisplayName("В поле Номер карты нули")
     void shouldFailurePayIfCardNumberNulls() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberNulls());
         paymentPage.shouldImproperFormatNotification();
@@ -175,7 +171,7 @@ public class CardPayTests {
     @DisplayName("Отказ банка в оплате несуществующей картой")
     void shouldFailurePayIfCardNumberNotInDatabase() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberNotInDatabase());
         paymentPage.shouldFailureNotification();
@@ -185,7 +181,7 @@ public class CardPayTests {
     @DisplayName("В поле Месяц нули")
     void shouldFailurePayIfCardMonth00() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardMonth00());
         paymentPage.shouldInvalidExpiredDateNotification();
@@ -195,7 +191,7 @@ public class CardPayTests {
     @DisplayName("В поле Месяц 13")
     void shouldFailurePayIfCardMonthOver12() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardMonthOver12());
         paymentPage.shouldInvalidExpiredDateNotification();
@@ -205,7 +201,7 @@ public class CardPayTests {
     @DisplayName("Срок действия карты истек")
     void shouldFailurePayIfCardDateInPast() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardDateInPast());
         paymentPage.shouldExpiredDatePassNotification();
@@ -215,7 +211,7 @@ public class CardPayTests {
     @DisplayName("В поле Месяц буквы")
     void shouldFailurePayIfCardMonthLetters() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardMonthLetters());
         paymentPage.shouldImproperFormatNotification();
@@ -225,7 +221,7 @@ public class CardPayTests {
     @DisplayName("В поле Месяц спецсимволы")
     void shouldFailurePayIfCardMonthSymbols() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardMonthSymbols());
         paymentPage.shouldImproperFormatNotification();
@@ -235,7 +231,7 @@ public class CardPayTests {
     @DisplayName("В поле Год нули")
     void shouldFailurePayIfCardYear00() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardYear00());
         paymentPage.shouldInvalidExpiredDateNotification();
@@ -245,7 +241,7 @@ public class CardPayTests {
     @DisplayName("В поле Год 1 символ")
     void shouldFailurePayIfCardYear1Sym() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardYear1Sym());
         paymentPage.shouldImproperFormatNotification();
@@ -255,7 +251,7 @@ public class CardPayTests {
     @DisplayName("В поле Год прошлый год")
     void shouldFailurePayIfCardYearInPast() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardYearInPast());
         paymentPage.shouldExpiredDatePassNotification();
@@ -265,7 +261,7 @@ public class CardPayTests {
     @DisplayName("В поле Год больше, чем срок действия карты")
     void shouldFailurePayIfCardDateOverThisYearOn5() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardDateOverThisYearOn5());
         paymentPage.shouldInvalidExpiredDateNotification();
@@ -275,7 +271,7 @@ public class CardPayTests {
     @DisplayName("В поле Год буквы")
     void shouldFailurePayIfCardYearLetters() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardYearLetters());
         paymentPage.shouldImproperFormatNotification();
@@ -285,7 +281,7 @@ public class CardPayTests {
     @DisplayName("В поле Год спецсимволы")
     void shouldFailurePayIfCardYearSymbols() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardYearSymbols());
         paymentPage.shouldImproperFormatNotification();
@@ -295,7 +291,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец заполнено кириллицей")
     void shouldFailurePayIfCardHolderCirillic() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolderCirillic());
         paymentPage.shouldImproperFormatNotification();
@@ -305,7 +301,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец содержит 2 символа")
     void shouldFailurePayIfCardHolder2Sym() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolder2Sym());
         paymentPage.shouldImproperFormatNotification();
@@ -315,7 +311,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец содержит одно слово")
     void shouldFailurePayIfCardHolder1Word() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolder1Word());
         paymentPage.shouldImproperFormatNotification();
@@ -325,7 +321,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец содержит слово через дефис")
     void shouldSuccessPayIfCardHolderHyphen() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolderHyphen());
         paymentPage.shouldSuccessNotification();
@@ -335,7 +331,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец содержит слишком длинное название")
     void shouldFailurePayIfCardHolderTooLong() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolderTooLong());
         paymentPage.shouldImproperFormatNotification();
@@ -345,7 +341,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец содержит спецсимволы")
     void shouldFailurePayIfCardHolderSymbols() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolderSymbols());
         paymentPage.shouldImproperFormatNotification();
@@ -355,7 +351,7 @@ public class CardPayTests {
     @DisplayName("Поле Владелец содержит цифры")
     void shouldFailurePayIfCardHolderNumeric() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardHolderNumeric());
         paymentPage.shouldImproperFormatNotification();
@@ -365,7 +361,7 @@ public class CardPayTests {
     @DisplayName("Поле CVV содержит 1 символ")
     void shouldFailurePayIfCardCvv1Sym() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardCvv1Sym());
         paymentPage.shouldImproperFormatNotification();
@@ -375,7 +371,7 @@ public class CardPayTests {
     @DisplayName("Поле CVV содержит 2 символа")
     void shouldFailurePayIfCardCvv2Sym() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardCvv2Sym());
         paymentPage.shouldImproperFormatNotification();
@@ -385,7 +381,7 @@ public class CardPayTests {
     @DisplayName("Поле CVV содержит буквы")
     void shouldFailurePayIfCardCvvLetters() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardCvvLetters());
         paymentPage.shouldImproperFormatNotification();
@@ -395,7 +391,7 @@ public class CardPayTests {
     @DisplayName("Поле CVV содержит спецсимволы")
     void shouldFailurePayIfCardCvvSymbols() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardCvvSymbols());
         paymentPage.shouldImproperFormatNotification();
@@ -405,7 +401,7 @@ public class CardPayTests {
     @DisplayName("Поле CVV содержит нули")
     void shouldFailurePayIfCardCvv000() {
         MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
+        mainPage.payWithCredit();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardCvv000());
         paymentPage.shouldImproperFormatNotification();

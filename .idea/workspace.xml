@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0c4449d-79f8-4018-b7c3-d611f92fc0ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CreditPayTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/data/CardGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/data/CardGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/PaymentPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/PaymentPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CardPayTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CardPayTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,16 +55,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Frg/IdeaProjects/qa-diploma&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_directory_selection": "C:/Users/Frg/IdeaProjects/qa-diploma/src/test/java",
+    "last_opened_file_path": "C:/Users/Frg/IdeaProjects/qa-diploma",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Frg\IdeaProjects\qa-diploma" />
@@ -68,6 +74,9 @@
       <recent name="C:\Users\Frg\IdeaProjects\qa-diploma\src\test\java" />
       <recent name="C:\Users\Frg\IdeaProjects\qa-diploma\artifacts" />
       <recent name="C:\Users\Frg\IdeaProjects\qa-diploma" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tests" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.AuthTests.shouldFailurePayIfEmptyCardNumber">

@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import data.CardGenerator;
 
 import java.time.Duration;
 
@@ -59,4 +60,5 @@ public class PaymentPage {
     public void shouldFailureNotification() {
         failureNote.shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
+
 }

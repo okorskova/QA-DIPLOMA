@@ -1,3 +1,5 @@
+package data;
+
 import com.github.javafaker.Faker;
 import lombok.NoArgsConstructor;
 import lombok.Value;
