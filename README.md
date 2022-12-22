@@ -6,18 +6,18 @@
 
 Для покупки тура есть два способа: с помощью карты и в кредит. В приложении используются два отдельных сервиса оплаты: Payment Gate и Credit Gate.
 
-Ссылка на Дипломное задание.
+[Ссылка на Дипломное задание](https://github.com/netology-code/qa-diploma).
 
 ### Тестовая документация
 
-1. План тестирования.
-2. Отчёт по итогам тестирования.
-3. Отчет по итогам автоматизации.
+1. [План тестирования](https://github.com/okorskova/QA-DIPLOMA/blob/main/documents/Plan.md).
+2. [Отчёт по итогам тестирования](https://github.com/okorskova/QA-DIPLOMA/blob/main/documents/Report.md).
+3. [Отчет по итогам автоматизации](https://github.com/okorskova/QA-DIPLOMA/blob/main/documents/SummaryReport.md).
 
 ### Запуск приложения
 
 #### Предусловия:
-1. Скопировать репозиторий с Github по ссылке.
+1. Скопировать репозиторий с Github по [ссылке](https://github.com/okorskova/QA-DIPLOMA).
 2. Открыть проект в IntelliJ IDEA.
 3. Установить и запустить Docker Desktop.
 
@@ -27,21 +27,24 @@
    * docker-compose up
 2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных:
 
-   * java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar - для MySQL
+   * java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar - **для MySQL**
 
-   * java -Dspring.datasource-postgresql.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar - для PostgreSQL
+   * java -Dspring.datasource-postgresql.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar - **для PostgreSQL**
 
 3. Убедиться в готовности системы. Приложение должно быть доступно по адресу:
    * http://localhost:8080/
 
 #### Запуск тестов:
-В новой вкладке терминала ввести команду: .\gradlew clean test
+В новой вкладке терминала ввести команду: 
+
+* gradlew clean test
 
 #### Перезапуск приложения и тестов:
 Если требуется перезапустить приложение и/или тесты (например, для другой БД), необходимо выполнить остановку работы в запущенных ранее вкладках терминала нажав в них Ctrl+С.
 
 ### Формирование отчета AllureReport по результатам тестирования
 В новой вкладке терминала ввести команду:
-   * gradlew allureServe
+
+* gradlew allureServe 
 
 Сгенерированный отчет откроется в браузере автоматически.
