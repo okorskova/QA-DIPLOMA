@@ -27,9 +27,9 @@
    * docker-compose up
 2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных:
 
-   * java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar artifacts/aqa-shop.jar - **для MySQL**
+   * java -jar artifacts/aqa-shop.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app - **для MySQL**
 
-   * java -Dspring.datasource-postgresql.url=jdbc:postgresql://localhost:5432/app -jar artifacts/aqa-shop.jar - **для PostgreSQL**
+   * java -jar artifacts/aqa-shop.jar -P:jdbc.url=jdbc:postgresql://localhost:5432/app - **для PostgreSQL**
 
 3. Убедиться в готовности системы. Приложение должно быть доступно по адресу:
    * http://localhost:8080/
@@ -37,7 +37,7 @@
 #### Запуск тестов:
 В новой вкладке терминала ввести команду: 
 
-* gradlew clean test
+* .\gradlew clean test
 
 #### Перезапуск приложения и тестов:
 Если требуется перезапустить приложение и/или тесты (например, для другой БД), необходимо выполнить остановку работы в запущенных ранее вкладках терминала нажав в них Ctrl+С.
@@ -45,6 +45,6 @@
 ### Формирование отчета AllureReport по результатам тестирования
 В новой вкладке терминала ввести команду:
 
-* gradlew allureServe 
+* .\gradlew allureServe 
 
 Сгенерированный отчет откроется в браузере автоматически.

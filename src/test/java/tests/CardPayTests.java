@@ -34,7 +34,7 @@ public class CardPayTests {
 
     @AfterEach
     void cleanDataBases() {
-        SQL.clearDataBase();
+        SQL.cleanDatabase();
     }
 
     @SneakyThrows
@@ -238,7 +238,7 @@ public class CardPayTests {
         mainPage.payWithCard();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardYear00());
-        paymentPage.shouldInvalidExpiredDateNotification();
+        paymentPage.shouldExpiredDatePassNotification();
     }
 
     @Test

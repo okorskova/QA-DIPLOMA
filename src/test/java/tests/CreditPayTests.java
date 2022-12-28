@@ -31,7 +31,7 @@ public class CreditPayTests {
 
     @AfterEach
     void cleanDataBases() {
-        SQL.clearDataBase();
+        SQL.cleanDatabase();
     }
 
     @SneakyThrows
