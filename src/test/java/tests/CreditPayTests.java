@@ -7,6 +7,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import lombok.SneakyThrows;
 import lombok.val;
 import org.junit.jupiter.api.*;
+import pages.CreditPayPage;
 import pages.MainPage;
 import pages.PaymentPage;
 
@@ -40,9 +41,9 @@ public class CreditPayTests {
     void shouldSuccessPayIfApprovedCard() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getApprovedCard());
-        paymentPage.shouldSuccessNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getApprovedCard());
+        creditPayPage.shouldSuccessNotification();
         assertEquals("APPROVED", getCardStatusForCreditRequest());
     }
 
@@ -51,9 +52,9 @@ public class CreditPayTests {
     void shouldFailurePayIfDeclinedCard() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getDeclinedCard());
-        paymentPage.shouldFailureNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getDeclinedCard());
+        creditPayPage.shouldFailureNotification();
         assertEquals("DECLINED", getCardStatusForCreditRequest());
     }
 
@@ -62,9 +63,9 @@ public class CreditPayTests {
     void shouldFailurePayIfEmptyAllFields() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getEmptyCardForm());
-        paymentPage.shouldEmptyFieldNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getEmptyCardForm());
+        creditPayPage.shouldEmptyFieldNotification();
     }
 
     @Test
@@ -72,9 +73,9 @@ public class CreditPayTests {
     void shouldFailurePayIfEmptyCardNumber() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getEmptyCardNumber());
-        paymentPage.shouldEmptyFieldNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getEmptyCardNumber());
+        creditPayPage.shouldEmptyFieldNotification();
     }
 
     @Test
@@ -82,9 +83,9 @@ public class CreditPayTests {
     void shouldFailurePayIfEmptyCardMonth() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getEmptyCardMonth());
-        paymentPage.shouldEmptyFieldNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getEmptyCardMonth());
+        creditPayPage.shouldEmptyFieldNotification();
     }
 
     @Test
@@ -92,9 +93,9 @@ public class CreditPayTests {
     void shouldFailurePayIfEmptyCardYear() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getEmptyCardYear());
-        paymentPage.shouldEmptyFieldNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getEmptyCardYear());
+        creditPayPage.shouldEmptyFieldNotification();
     }
 
     @Test
@@ -102,9 +103,9 @@ public class CreditPayTests {
     void shouldFailurePayIfEmptyCardHolder() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getEmptyCardHolder());
-        paymentPage.shouldEmptyFieldNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getEmptyCardHolder());
+        creditPayPage.shouldEmptyFieldNotification();
     }
 
     @Test
@@ -112,9 +113,9 @@ public class CreditPayTests {
     void shouldFailurePayIfEmptyCardCVV() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getEmptyCardCVV());
-        paymentPage.shouldEmptyFieldNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getEmptyCardCVV());
+        creditPayPage.shouldEmptyFieldNotification();
     }
 
     @Test
@@ -122,9 +123,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardNumberLess16Sym() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardNumberLess16Sym());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardNumberLess16Sym());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -132,9 +133,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardNumberOver16Sym() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardNumberOver16Sym());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardNumberOver16Sym());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -142,9 +143,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardNumberLetters() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardNumberLetters());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardNumberLetters());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -152,9 +153,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardNumberSymbols() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardNumberSymbols());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardNumberSymbols());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -162,9 +163,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardNumberNulls() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardNumberNulls());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardNumberNulls());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -172,9 +173,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardNumberNotInDatabase() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardNumberNotInDatabase());
-        paymentPage.shouldFailureNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardNumberNotInDatabase());
+        creditPayPage.shouldFailureNotification();
     }
 
     @Test
@@ -182,9 +183,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardMonth00() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardMonth00());
-        paymentPage.shouldInvalidExpiredDateNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardMonth00());
+        creditPayPage.shouldInvalidExpiredDateNotification();
     }
 
     @Test
@@ -192,9 +193,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardMonthOver12() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardMonthOver12());
-        paymentPage.shouldInvalidExpiredDateNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardMonthOver12());
+        creditPayPage.shouldInvalidExpiredDateNotification();
     }
 
     @Test
@@ -202,9 +203,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardDateInPast() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardDateInPast());
-        paymentPage.shouldExpiredDatePassNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardDateInPast());
+        creditPayPage.shouldExpiredDatePassNotification();
     }
 
     @Test
@@ -212,9 +213,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardMonthLetters() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardMonthLetters());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardMonthLetters());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -222,9 +223,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardMonthSymbols() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardMonthSymbols());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardMonthSymbols());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -232,9 +233,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardYear00() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardYear00());
-        paymentPage.shouldInvalidExpiredDateNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardYear00());
+        creditPayPage.shouldInvalidExpiredDateNotification();
     }
 
     @Test
@@ -242,9 +243,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardYear1Sym() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardYear1Sym());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardYear1Sym());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -252,9 +253,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardYearInPast() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardYearInPast());
-        paymentPage.shouldExpiredDatePassNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardYearInPast());
+        creditPayPage.shouldExpiredDatePassNotification();
     }
 
     @Test
@@ -262,9 +263,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardDateOverThisYearOn5() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardDateOverThisYearOn5());
-        paymentPage.shouldInvalidExpiredDateNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardDateOverThisYearOn5());
+        creditPayPage.shouldInvalidExpiredDateNotification();
     }
 
     @Test
@@ -272,9 +273,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardYearLetters() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardYearLetters());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardYearLetters());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -282,9 +283,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardYearSymbols() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardYearSymbols());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardYearSymbols());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -292,9 +293,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardHolderCirillic() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolderCirillic());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolderCirillic());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -302,9 +303,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardHolder2Sym() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolder2Sym());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolder2Sym());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -312,9 +313,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardHolder1Word() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolder1Word());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolder1Word());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -322,9 +323,9 @@ public class CreditPayTests {
     void shouldSuccessPayIfCardHolderHyphen() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolderHyphen());
-        paymentPage.shouldSuccessNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolderHyphen());
+        creditPayPage.shouldSuccessNotification();
     }
 
     @Test
@@ -332,9 +333,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardHolderTooLong() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolderTooLong());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolderTooLong());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -342,9 +343,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardHolderSymbols() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolderSymbols());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolderSymbols());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -352,9 +353,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardHolderNumeric() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardHolderNumeric());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardHolderNumeric());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -362,9 +363,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardCvv1Sym() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardCvv1Sym());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardCvv1Sym());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -372,9 +373,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardCvv2Sym() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardCvv2Sym());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardCvv2Sym());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -382,9 +383,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardCvvLetters() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardCvvLetters());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardCvvLetters());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -392,9 +393,9 @@ public class CreditPayTests {
     void shouldFailurePayIfCardCvvSymbols() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardCvvSymbols());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardCvvSymbols());
+        creditPayPage.shouldImproperFormatNotification();
     }
 
     @Test
@@ -402,8 +403,8 @@ public class CreditPayTests {
     void shouldFailurePayIfCardCvv000() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardCvv000());
-        paymentPage.shouldImproperFormatNotification();
+        val creditPayPage = new CreditPayPage();
+        creditPayPage.fillCard(CardGenerator.getCardCvv000());
+        creditPayPage.shouldImproperFormatNotification();
     }
 }

@@ -27,9 +27,9 @@
    * docker-compose up
 2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных:
 
-   * java -jar artifacts/aqa-shop.jar -P:jdbc.url=jdbc:mysql://localhost:3306/app - **для MySQL**
+   * java -jar artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://localhost:3306/app - **для MySQL**
 
-   * java -jar artifacts/aqa-shop.jar -P:jdbc.url=jdbc:postgresql://localhost:5432/app - **для PostgreSQL**
+   * java -jar artifacts/aqa-shop.jar -Dspring.datasource-postgresql.url=jdbc:postgresql://localhost:5432/app - **для PostgreSQL**
 
 3. Убедиться в готовности системы. Приложение должно быть доступно по адресу:
    * http://localhost:8080/
