@@ -22,14 +22,13 @@
 3. Установить и запустить Docker Desktop.
 
 #### Запуск контейнеров:
-1. Для запуска баз данных MySQL и PostgreSQL, а также NodeJS необходимо ввести в терминале команду:
+1. Для запуска баз данных MySQL и PostgreSQL, а также NodeJS необходимо запустить контейнер через виртуальную машину Linux. Чтобы подключиться к машине необходимо запустить программу PuTTY на порту 217.25.88.206, ввести логин/пароль: student/BRDTQW. Контейнер уже запущен.
 
-   * docker-compose up
-2. В новой вкладке терминала ввести следующую команду в зависимости от базы данных:
+2. Во вкладке терминала компьютера ввести следующую команду в зависимости от базы данных:
 
-   * java -jar artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://localhost:3306/app - **для MySQL**
+   * java "-Dspring.datasource.url=jdbc:mysql://217.25.88.206:3306/app" -jar artifacts/aqa-shop.jar - **для MySQL**
 
-   * java -jar artifacts/aqa-shop.jar -Dspring.datasource-postgresql.url=jdbc:postgresql://localhost:5432/app - **для PostgreSQL**
+   
 
 3. Убедиться в готовности системы. Приложение должно быть доступно по адресу:
    * http://localhost:8080/

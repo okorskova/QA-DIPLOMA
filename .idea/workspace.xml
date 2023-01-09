@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c0c4449d-79f8-4018-b7c3-d611f92fc0ab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documents/Report.md" beforeDir="false" afterPath="$PROJECT_DIR$/documents/Report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CardPayTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CardPayTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CreditPayTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CreditPayTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +60,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/Frg/IdeaProjects/qa-diploma/src/test/java&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Frg/IdeaProjects/qa-diploma&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Frg/IdeaProjects/qa-diploma/src/test/java/tests&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -64,6 +69,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Frg\IdeaProjects\qa-diploma\src\test\java\tests" />
+      <recent name="C:\Users\Frg\IdeaProjects\qa-diploma\src\test\java\data" />
       <recent name="C:\Users\Frg\IdeaProjects\qa-diploma" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -76,8 +83,8 @@
       <recent name="tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CreditPayTests.shouldFailurePayIfEmptyCardCVV">
-    <configuration name="CardPayTests.shouldFailurePayIfEmptyAllFields" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CreditPayTests.shouldSuccessPayIfApprovedCard">
+    <configuration name="APITest.shouldGetStatusValidApprovedCardCreditRequest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -90,7 +97,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.CardPayTests.shouldFailurePayIfEmptyAllFields&quot;" />
+            <option value="&quot;tests.APITest.shouldGetStatusValidApprovedCardCreditRequest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -100,7 +107,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CardPayTests.shouldFailurePayIfEmptyCardHolder (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CardPayTests.shouldFailurePayIfCardCvv000" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -113,7 +120,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.CardPayTests.shouldFailurePayIfEmptyCardHolder&quot;" />
+            <option value="&quot;tests.CardPayTests.shouldFailurePayIfCardCvv000&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -123,7 +130,30 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CardPayTests.shouldSuccessPayIfApprovedCard (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CardPayTests.shouldFailurePayIfCardNumberNulls" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;tests.CardPayTests.shouldFailurePayIfCardNumberNulls&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CardPayTests.shouldSuccessPayIfApprovedCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -146,7 +176,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="CreditPayTests.shouldFailurePayIfEmptyCardCVV" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreditPayTests.shouldSuccessPayIfApprovedCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -159,30 +189,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tests.CreditPayTests.shouldFailurePayIfEmptyCardCVV&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="CreditPayTests.shouldFailurePayIfEmptyCardHolder" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tests.CreditPayTests.shouldFailurePayIfEmptyCardHolder&quot;" />
+            <option value="&quot;tests.CreditPayTests.shouldSuccessPayIfApprovedCard&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -194,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CreditPayTests.shouldFailurePayIfEmptyCardCVV" />
-        <item itemvalue="Gradle.CreditPayTests.shouldFailurePayIfEmptyCardHolder" />
-        <item itemvalue="Gradle.CardPayTests.shouldFailurePayIfEmptyCardHolder (1)" />
-        <item itemvalue="Gradle.CardPayTests.shouldFailurePayIfEmptyAllFields" />
-        <item itemvalue="Gradle.CardPayTests.shouldSuccessPayIfApprovedCard (1)" />
+        <item itemvalue="Gradle.CreditPayTests.shouldSuccessPayIfApprovedCard" />
+        <item itemvalue="Gradle.CardPayTests.shouldSuccessPayIfApprovedCard" />
+        <item itemvalue="Gradle.APITest.shouldGetStatusValidApprovedCardCreditRequest" />
+        <item itemvalue="Gradle.CardPayTests.shouldFailurePayIfCardNumberNulls" />
+        <item itemvalue="Gradle.CardPayTests.shouldFailurePayIfCardCvv000" />
       </list>
     </recent_temporary>
   </component>

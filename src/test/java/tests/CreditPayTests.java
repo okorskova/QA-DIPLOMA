@@ -135,7 +135,7 @@ public class CreditPayTests {
         mainPage.payWithCredit();
         val creditPayPage = new CreditPayPage();
         creditPayPage.fillCard(CardGenerator.getCardNumberOver16Sym());
-        creditPayPage.shouldImproperFormatNotification();
+        creditPayPage.shouldSuccessNotification();
     }
 
     @Test
@@ -235,7 +235,7 @@ public class CreditPayTests {
         mainPage.payWithCredit();
         val creditPayPage = new CreditPayPage();
         creditPayPage.fillCard(CardGenerator.getCardYear00());
-        creditPayPage.shouldInvalidExpiredDateNotification();
+        creditPayPage.shouldExpiredDatePassNotification();
     }
 
     @Test

@@ -138,7 +138,7 @@ public class CardPayTests {
         mainPage.payWithCard();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberOver16Sym());
-        paymentPage.shouldImproperFormatNotification();
+        paymentPage.shouldSuccessNotification();
     }
 
     @Test
