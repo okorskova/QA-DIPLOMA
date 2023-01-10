@@ -4,22 +4,21 @@
 
 Выполнено автоматизированное тестирование веб-сервиса покупки тура "Путешествие дня", взаимодействующего с СУБД и API Банка.
 
-Общее количество тест-кейсов: **78**
+Общее количество тест-кейсов: **76**
 
 ### Статистика успешных / неуспешных тест-кейсов
-![отчет общий](https://user-images.githubusercontent.com/107769528/211362516-6122516c-938d-4fad-8d09-c0c0a13ddc9d.png)
+![отчет общий](https://user-images.githubusercontent.com/107769528/211614712-456ff03d-dc9d-42b5-aec0-937a4cfd3e02.png)
 
-* **Успешных кейсов 65.38% (51 кейс)**
-* **Неуспешных кейсов 34.62% (27 кейсов)**
+* **Успешных кейсов 72.36% (55 кейсов)**
+* **Неуспешных кейсов 27.64% (21 кейс)**
 
+![тест карта1](https://user-images.githubusercontent.com/107769528/211615219-b4778cf1-96a8-4e33-af9f-ba857df26893.png)
+![тест карта2](https://user-images.githubusercontent.com/107769528/211615241-828b1462-a05f-4c70-8bd0-a97ffed6aa60.png)
+![тест карта3](https://user-images.githubusercontent.com/107769528/211615257-575604f7-f208-4301-9e7d-6dde1ef2a6a3.png)
 
-![карта тесты1](https://user-images.githubusercontent.com/107769528/211362870-a80e7d58-fb6c-4d1b-ab2b-2c9783232fb8.png)
-![карта тесты2](https://user-images.githubusercontent.com/107769528/211363788-35eb66dd-e5e4-4359-aa6b-3efdd351c858.png)
-![карта тесты3](https://user-images.githubusercontent.com/107769528/211364209-2e062085-0ef5-488c-b294-57e082b2f785.png)
-
-![кредит тесты1](https://user-images.githubusercontent.com/107769528/211363826-2c57e80c-74d4-4a53-b7da-b5e9a3c529de.png)
-![кредит тесты2](https://user-images.githubusercontent.com/107769528/211363843-3e8af847-0e75-4881-91ed-677831b930b5.png)
-![кредит тесты3](https://user-images.githubusercontent.com/107769528/211364260-b169e77a-cf4a-422c-804a-4bc6fcedab38.png)
+![тест кредит1](https://user-images.githubusercontent.com/107769528/211615290-c503c42d-41f3-4f2b-941f-11e8e44a3d87.png)
+![тест кредит2](https://user-images.githubusercontent.com/107769528/211615307-a046b70f-9845-4069-b2e8-6b111554175e.png)
+![тест кредит3](https://user-images.githubusercontent.com/107769528/211615325-86fe00d0-22b6-4765-9d13-07e533673970.png)
 
 ![API тесты](https://user-images.githubusercontent.com/107769528/211363868-e5e2c9c6-9348-435a-8395-43cf58909559.png)
 
