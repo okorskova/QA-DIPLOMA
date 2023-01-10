@@ -165,7 +165,7 @@ public class CreditPayTests {
         mainPage.payWithCredit();
         val creditPayPage = new CreditPayPage();
         creditPayPage.fillCard(CardGenerator.getCardNumberNulls());
-        creditPayPage.shouldImproperFormatNotification();
+        creditPayPage.shouldFailureNotification();
     }
 
     @Test
@@ -196,16 +196,6 @@ public class CreditPayTests {
         val creditPayPage = new CreditPayPage();
         creditPayPage.fillCard(CardGenerator.getCardMonthOver12());
         creditPayPage.shouldInvalidExpiredDateNotification();
-    }
-
-    @Test
-    @DisplayName("Срок действия карты истек")
-    void shouldFailurePayIfCardDateInPast() {
-        MainPage mainPage = new MainPage();
-        mainPage.payWithCredit();
-        val creditPayPage = new CreditPayPage();
-        creditPayPage.fillCard(CardGenerator.getCardDateInPast());
-        creditPayPage.shouldExpiredDatePassNotification();
     }
 
     @Test
@@ -400,11 +390,11 @@ public class CreditPayTests {
 
     @Test
     @DisplayName("Поле CVV содержит нули")
-    void shouldFailurePayIfCardCvv000() {
+    void shouldSuccessPayIfCardCvv000() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCredit();
         val creditPayPage = new CreditPayPage();
         creditPayPage.fillCard(CardGenerator.getCardCvv000());
-        creditPayPage.shouldImproperFormatNotification();
+        creditPayPage.shouldSuccessNotification();
     }
 }

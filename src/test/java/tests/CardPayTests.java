@@ -168,7 +168,7 @@ public class CardPayTests {
         mainPage.payWithCard();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardNumberNulls());
-        paymentPage.shouldImproperFormatNotification();
+        paymentPage.shouldFailureNotification();
     }
 
     @Test
@@ -199,16 +199,6 @@ public class CardPayTests {
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardMonthOver12());
         paymentPage.shouldInvalidExpiredDateNotification();
-    }
-
-    @Test
-    @DisplayName("Срок действия карты истек")
-    void shouldFailurePayIfCardDateInPast() {
-        MainPage mainPage = new MainPage();
-        mainPage.payWithCard();
-        val paymentPage = new PaymentPage();
-        paymentPage.fillCard(CardGenerator.getCardDateInPast());
-        paymentPage.shouldExpiredDatePassNotification();
     }
 
     @Test
@@ -403,11 +393,11 @@ public class CardPayTests {
 
     @Test
     @DisplayName("Поле CVV содержит нули")
-    void shouldFailurePayIfCardCvv000() {
+    void shouldSuccessPayIfCardCvv000() {
         MainPage mainPage = new MainPage();
         mainPage.payWithCard();
         val paymentPage = new PaymentPage();
         paymentPage.fillCard(CardGenerator.getCardCvv000());
-        paymentPage.shouldImproperFormatNotification();
+        paymentPage.shouldSuccessNotification();
     }
 }

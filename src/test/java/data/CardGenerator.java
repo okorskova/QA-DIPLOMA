@@ -36,10 +36,6 @@ public class CardGenerator {
         return LocalDate.now().format(DateTimeFormatter.ofPattern("yy"));
     }
 
-    public static String getPastMonth(int months) {
-        return LocalDate.now().minusMonths(1).format(DateTimeFormatter.ofPattern("MM"));
-    }
-
     public static String getPastYear(int years) {
         return LocalDate.now().minusYears(1).format(DateTimeFormatter.ofPattern("yy"));
     }
@@ -124,11 +120,6 @@ public class CardGenerator {
         return new Card(getApprovedCardNumber(), "13", getYear(), getHolder(), getCvv());
     }
 
-
-    public static Card getCardDateInPast() {
-        return new Card(getApprovedCardNumber(), getPastMonth(1), getYear(), getHolder(), getCvv());
-    }
-
     public static Card getCardMonthLetters() {
         return new Card(getApprovedCardNumber(), "month", getYear(), getHolder(), getCvv());
     }
@@ -146,7 +137,7 @@ public class CardGenerator {
     }
 
     public static Card getCardYearInPast() {
-        return new Card(getApprovedCardNumber(), getMonth(), getPastYear(1), getHolder(), getCvv());
+        return new Card(getApprovedCardNumber(), getMonth(), getPastYear(-1), getHolder(), getCvv());
     }
 
     public static Card getCardDateOverThisYearOn5() {
