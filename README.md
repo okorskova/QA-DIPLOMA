@@ -27,9 +27,9 @@
 2. Во вкладке терминала компьютера ввести следующую команду в зависимости от базы данных:
 
    * java "-Dspring.datasource.url=jdbc:mysql://217.25.88.206:3306/app" -jar artifacts/aqa-shop.jar - **для MySQL**
+   * java "-Dspring.datasource.url=jdbc:postgresql://217.25.88.206:5432/app" -jar artifacts/aqa-shop.jar - **для PostgreSQL**
 
    
-
 3. Убедиться в готовности системы. Приложение должно быть доступно по адресу:
    * http://localhost:8080/
 
